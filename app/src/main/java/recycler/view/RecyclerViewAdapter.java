@@ -1,9 +1,12 @@
 package recycler.view;
 
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -18,6 +21,14 @@ import androidx.recyclerview.widget.RecyclerView;
 //podatke na pojedine UI elemente u retku
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
 
+    //modelClasses je varijabla u koju cemo spremati
+    //podatke za nasu ModelClass
+    private List<ModelClass> model;
+
+    //prosljedili smo model array tipa ModelClass
+    public RecyclerViewAdapter(List<ModelClass> model){
+        this.model = model;
+    }
 
     //ova metoda se poziva kada je adapter kreiran i koristi se
     //kada zelimo inicijalizirati ViewHolder objekt
@@ -25,7 +36,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+        Context context = parent.getContext();
+        LayoutInflater inflater = LayoutInflater.from(context);
+
+        View jedanRedakView = inflater.inflate(R.layout.jedan_redak,parent,false);
+
+        ViewHolder viewHolder = new ViewHolder(jedanRedakView);
+        return viewHolder;
     }
 
 
@@ -35,6 +52,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
+        ModelClass modelClass = model.get(position);
+
+        TextView imeDrzave = holder.imeDrzave;
+        imeDrzave.setText(modelClass.getIme());
+
+        TextView imeKontinenta = holder.imeKontinenta;
+        imeKontinenta.setText(modelClass.getKontinent());
+
+        ImageView slika = holder.slika;
+
     }
 
 
@@ -42,7 +69,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     //item-e koje mi zelimo prikazati
     @Override
     public int getItemCount() {
-        return 0;
+        return model.size();
     }
 
     //nasa custom ViewHolder klasa koja nam omogucava pristup svim nasim
@@ -68,7 +95,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         //kako bi prikazali podatke
         public ViewHolder(@NonNull View itemView) {
 
-            //
+            //sprema itemView u public final member varijablu koja
+            //moze biti koristena za prihvacanje context-a iz svakog
+            //ViewHolder objekta
             super(itemView);
 
 
@@ -80,5 +109,4 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             slika = itemView.findViewById(R.id.slika);
         }
     }
-
 }
