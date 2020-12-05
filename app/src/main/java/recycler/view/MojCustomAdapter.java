@@ -12,17 +12,17 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder> {
+class MojCustomAdapter extends RecyclerView.Adapter<MojCustomAdapter.ViewHolder> {
 
-    public MyListData[] listData;
+    public MojaListaPodataka[] listData;
 
-    public MyListAdapter(MyListData[] listData){
+    public MojCustomAdapter(MojaListaPodataka[] listData){
         this.listData = listData;
     }
 
     @NonNull
     @Override
-    public MyListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MojCustomAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View listItem = layoutInflater.inflate(R.layout.jedan_redak,parent,false);
         ViewHolder viewHolder = new ViewHolder(listItem);
@@ -31,8 +31,8 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyListAdapter.ViewHolder holder, int position) {
-        final MyListData myListData = listData[position];
+    public void onBindViewHolder(@NonNull MojCustomAdapter.ViewHolder holder, int position) {
+        final MojaListaPodataka myListData = listData[position];
         holder.drzava.setText(listData[position].getDrzava());
         holder.kontinent.setText(listData[position].getKontinent());
         holder.slika.setImageResource(listData[position].getSlika());
