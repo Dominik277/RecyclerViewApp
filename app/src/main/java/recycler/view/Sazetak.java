@@ -1,3 +1,4 @@
+/*
 Adapter --> dio koji uzima listu ili kolekciju objekata i ostvaruje da oni
             budu vidljivi u RecyclerView-u
         --> adapter prvo stvara ViewHolder
@@ -41,10 +42,4 @@ ModelClass Klasa
 -------------------------
 RecyclerViewAdapter Klasa
 -------------------------
-
-
-
-
-
-
-
+ */
