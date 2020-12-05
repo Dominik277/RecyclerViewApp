@@ -20,13 +20,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ime drzave"
-            android:textSize="20dp"/>
+            android:textSize="20dp"
+            android:textColor="#4d4d4d"/>
         <TextView
             android:id="@+id/imeKontinenta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ime kontinenta"
             android:textSize="20dp"
+            android:textColor="#4d4d4d"
             android:layout_marginTop="35dp"/>
 
     </LinearLayout>
