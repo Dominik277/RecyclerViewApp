@@ -1,5 +1,7 @@
 package recycler.view;
 
+import java.util.ArrayList;
+
 public class ModelClass {
 
     //instance varijabla tipa String naziva ime koja je atribut klase
@@ -50,5 +52,16 @@ public class ModelClass {
 
     public void setSlika(int slika) {
         this.slika = slika;
+    }
+
+    private static int lastContactId = 0;
+
+    public static ArrayList<ModelClass> createModelList(int numberOfModels){
+        ArrayList<ModelClass> modelClasses = new ArrayList<>();
+
+        for (int i = 1; i<=numberOfModels; i++){
+            modelClasses.add(new ModelClass("brazil","amerika",R.drawable.ic_launcher_background));
+        }
+        return modelClasses;
     }
 }
