@@ -25,3 +25,47 @@ Adapter --> on zna za sve objekte koji se nalaze u nekoj listi ili kolekciji
             koji mu je adapter dao i prikaze ih kao pojedine elemente jednog redka
         --> posto adapter ima pristup svim objektima u nekoj kolekciji on ce nam
             moci osigurati broj objekata
+
+
+------------------
+MainActivity Klasa
+------------------
+
+
+----------------
+ModelClass Klasa
+----------------
+u ovoj POJO klasi smo definirali sve podatke koje ce nas RecyclerView imati, tocnije sve podatke
+koje ce jedan redak u RecyclerView-u imati.U nasem slucaju mi smo napravili custom izgled jednog
+redka koji ce sadrzavati sliku drzave, ime drzave i ime kontinenta na kojem se nalazi.Nakon toga
+smo napravili konstruktor koji kao parametre prima te instance varijable i kada se unesu tocni
+argumenti pri inicijalizaciji objekta, onda taj objekt poprima te vrijednosti iz zagrade.Također
+imamo i get metode koje nam sluze kako bi pristupili vrijednostima objekta da se ne bi pristupalo
+vrijednostima preko instance varijabli.Bas zbog toga da se izvan klase ne mogu mjenjati vrijednosti
+varijabli zbog toga su te varijable private.I imamo jos set metode pomocu kojih mozemo promjeniti
+neke od vrijednosti objekata ako to zelimo, radimo to preko metodi isto zbog toga jer su varijable
+tipa private.
+
+
+-------------------------
+RecyclerViewAdapter Klasa
+-------------------------
+RecyclerViewAdapter klasa je klasa u kojoj sami konstruiramo nas adapter.Sami ga pravimo jer smo
+odlucili da cemo izgled jednog redka biti onako kako smo mi zamislili i onda taj adapter moramo
+konstruirati tako da zadovoljava te uvjete.Adapter-ova zadaca je da uzima objekte iz neke liste
+ili kolekcije objekata te ih prikazuje u RecyclerView-u.RecyclerView mozemo zamisliti kao
+manekenku u izlogu ciji je posao samo da stoji i prikazuje tipa novu odjecu.Njen zadatak nije
+da si osigura odjecu,da razmislja na koji nacin ce stajati,koliko dugo ce stajati itd, upravo
+to je zadatak adaptera, da opskrbljava RecyclerView podacima a on da ga prikazuje.Adapter
+zahtjeva i postojanje ViewHoldera preko kojeg imamo pristup svakom view-u u jednom retku.
+
+Posto ova klasa nasljeđuje RecyclerView.Adapter klasu ona mora implementirati sve metode koje
+se nalaze u toj nadklasi a to su onCreateViewHolder,onBindViewHolder i getItem id
+
+Ova klasa u sebi sadrzi jos jednu ViewHolder klasu
+
+
+
+
+
+
